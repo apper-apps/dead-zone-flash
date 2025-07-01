@@ -83,10 +83,20 @@ const GameWorld = () => {
       <Building position={[0, 2.5, 50]} size={[100, 5, 1]} color="#1A1A1A" />
       <Building position={[0, 2.5, -50]} size={[100, 5, 1]} color="#1A1A1A" />
       <Building position={[50, 2.5, 0]} size={[1, 5, 100]} color="#1A1A1A" />
-      <Building position={[-50, 2.5, 0]} size={[1, 5, 100]} color="#1A1A1A" />
+<Building position={[-50, 2.5, 0]} size={[1, 5, 100]} color="#1A1A1A" />
 
-      {/* Atmospheric fog */}
-      <fog attach="fog" args={['#0D0D0D', 30, 80]} />
+      {/* Street lamps */}
+      <Building position={[5, 3, 5]} size={[0.2, 6, 0.2]} color="#8B8B8B" />
+      <Building position={[-5, 3, -5]} size={[0.2, 6, 0.2]} color="#8B8B8B" />
+      <Building position={[15, 3, -15]} size={[0.2, 6, 0.2]} color="#8B8B8B" />
+      
+      {/* Atmospheric effects */}
+      <fog attach="fog" args={['#0A0A0A', 25, 70]} />
+      
+      {/* Ambient particle effects */}
+      <pointLight position={[5, 6, 5]} intensity={0.2} color="#FFD700" distance={10} />
+      <pointLight position={[-5, 6, -5]} intensity={0.2} color="#FFD700" distance={10} />
+      <pointLight position={[15, 6, -15]} intensity={0.2} color="#FFD700" distance={10} />
     </group>
   );
 };

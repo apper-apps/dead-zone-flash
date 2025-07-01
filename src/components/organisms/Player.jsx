@@ -247,9 +247,85 @@ const Player = ({ gameState, onUpdatePlayer, onGameOver, zombies }) => {
         cleanup();
       };
     }
-  }, [isReloading, gameState.player.currentWeapon.reloadTime]);
+}, [isReloading, gameState.player.currentWeapon.reloadTime]);
 
-  return <mesh ref={ref} visible={false} />;
+  // Gun Model Component
+  const GunModel = () => {
+    const gunRef = useRef();
+    const weapon = gameState.player.currentWeapon;
+    
+    useFrame((state) => {
+      if (gunRef.current) {
+        // Gun sway and movement
+        const time = state.clock.getElapsedTime();
+        gunRef.current.rotation.x = Math.sin(time * 2) * 0.002;
+        gunRef.current.rotation.y = Math.cos(time * 1.5) * 0.001;
+        gunRef.current.position.y = -0.8 + Math.sin(time * 3) * 0.005;
+        
+        // Recoil effect during shooting
+        if (muzzleFlash) {
+          gunRef.current.rotation.x += 0.05;
+          gunRef.current.position.z += 0.02;
+        }
+      }
+    });
+
+    return (
+      <group 
+        ref={gunRef}
+        position={[0.3, -0.8, -0.5]}
+        rotation={[0, Math.PI + 0.2, 0]}
+      >
+        {/* Gun barrel */}
+        <mesh position={[0, 0.1, 0.4]}>
+          <cylinderGeometry args={[0.02, 0.025, 0.6, 8]} />
+          <meshStandardMaterial color="#2A2A2A" metalness={0.8} roughness={0.2} />
+        </mesh>
+        
+        {/* Gun body */}
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.15, 0.2, 0.4]} />
+          <meshStandardMaterial color="#1A1A1A" metalness={0.6} roughness={0.4} />
+        </mesh>
+        
+        {/* Gun handle */}
+        <mesh position={[0, -0.15, -0.1]}>
+          <boxGeometry args={[0.08, 0.3, 0.15]} />
+          <meshStandardMaterial color="#8B4513" metalness={0.1} roughness={0.8} />
+        </mesh>
+        
+        {/* Gun sight */}
+        <mesh position={[0, 0.15, 0.2]}>
+          <boxGeometry args={[0.02, 0.05, 0.1]} />
+          <meshStandardMaterial color="#FFD700" metalness={0.9} roughness={0.1} />
+        </mesh>
+        
+        {/* Trigger guard */}
+        <mesh position={[0, -0.05, -0.05]}>
+          <torusGeometry args={[0.04, 0.008, 6, 12]} />
+          <meshStandardMaterial color="#2A2A2A" metalness={0.8} roughness={0.2} />
+        </mesh>
+        
+        {/* Muzzle flash effect */}
+        {muzzleFlash && (
+          <mesh position={[0, 0.1, 0.7]}>
+            <coneGeometry args={[0.08, 0.2, 8]} />
+            <meshStandardMaterial 
+              color="#FFD700" 
+              emissive="#FF6B35"
+              transparent 
+              opacity={0.8}
+            />
+          </mesh>
+        )}
+      </group>
+    );
+  };
+
+  return (
+    <>
+      <mesh ref={ref} visible={false} />
+      <GunModel />
+    </>
+  );
 };
-
-export default Player;

@@ -21,11 +21,12 @@
     "react-redux": "9.2.0",
     "react-router-dom": "6.15.0",
     "react-toastify": "11.0.5",
-    "three": "0.158.0",
-    "@react-three/fiber": "8.15.11",
-    "@react-three/drei": "9.88.13",
-    "@react-three/cannon": "6.6.0",
-    "cannon-es": "0.20.0"
+"three": "^0.170.0",
+    "@react-three/fiber": "^8.16.8",
+    "@react-three/drei": "^9.112.0",
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/postprocessing": "^2.16.2",
+    "cannon-es": "^0.20.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

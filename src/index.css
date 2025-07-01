@@ -27,34 +27,49 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   pointer-events: none;
   z-index: 1000;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.8));
 }
 
 .crosshair::before,
 .crosshair::after {
   content: '';
   position: absolute;
-  background-color: #FF6B35;
-  opacity: 0.8;
+  background: linear-gradient(45deg, #FF6B35, #FFD700);
+  opacity: 0.9;
+  box-shadow: 0 0 4px rgba(255, 107, 53, 0.6);
 }
 
 .crosshair::before {
   width: 2px;
-  height: 20px;
+  height: 24px;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
 }
 
 .crosshair::after {
-  width: 20px;
+  width: 24px;
   height: 2px;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+}
+
+/* Center dot */
+.crosshair::after::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .damage-overlay {
@@ -134,4 +149,76 @@ canvas {
     min-height: 40px;
     padding: 8px 12px;
   }
+/* Gun positioning and recoil effects */
+.gun-container {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 500;
+}
+
+.gun-recoil {
+  animation: recoil 0.1s ease-out;
+}
+
+@keyframes recoil {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.gun-sway {
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(2px) rotate(0.5deg); }
+}
+
+/* Enhanced muzzle flash */
+.muzzle-flash {
+  position: fixed;
+  bottom: 25%;
+  right: 12%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #FFD700 0%, #FF6B35 40%, #FF4500 70%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 998;
+  animation: flashPulse 0.1s ease-out;
+  filter: blur(1px);
+}
+
+@keyframes flashPulse {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+/* Enhanced reload indicator */
+.reload-indicator {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: #FF6B35;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 107, 53, 0.5);
+  pointer-events: none;
+  z-index: 1001;
+  animation: reloadPulse 1s ease-in-out infinite;
+}
+
+@keyframes reloadPulse {
+  0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+}
 }

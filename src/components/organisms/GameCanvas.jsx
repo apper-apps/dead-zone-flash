@@ -42,31 +42,49 @@ const GameCanvas = ({
         }}
         dpr={[1, 2]}
       >
-        {/* Lighting */}
-        <ambientLight intensity={0.2} color="#404040" />
+{/* Enhanced Lighting */}
+        <ambientLight intensity={0.15} color="#2A2A40" />
         <directionalLight
-          position={[10, 10, 5]}
-          intensity={0.8}
+          position={[20, 20, 10]}
+          intensity={0.6}
           color="#FFA500"
           castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
+          shadow-mapSize-width={4096}
+          shadow-mapSize-height={4096}
+          shadow-camera-far={100}
+          shadow-camera-left={-50}
+          shadow-camera-right={50}
+          shadow-camera-top={50}
+          shadow-camera-bottom={-50}
+          shadow-bias={-0.0001}
         />
-        <pointLight position={[0, 5, 0]} intensity={0.3} color="#FF6B35" />
+        
+        {/* Atmospheric lighting */}
+        <pointLight position={[0, 8, 0]} intensity={0.4} color="#FF6B35" distance={30} />
+        <pointLight position={[15, 3, 15]} intensity={0.2} color="#4169E1" distance={20} />
+        <pointLight position={[-15, 3, -15]} intensity={0.2} color="#4169E1" distance={20} />
+        
+        {/* Rim lighting */}
+        <spotLight
+          position={[0, 15, 0]}
+          angle={Math.PI / 3}
+          penumbra={0.5}
+          intensity={0.3}
+          color="#8A2BE2"
+          distance={40}
+          castShadow
+        />
 
-        {/* Sky */}
+        {/* Enhanced Sky */}
         <Sky
           distance={450000}
-          sunPosition={[0, 1, 0]}
-          inclination={0.49}
+          sunPosition={[0, 0.4, 0]}
+          inclination={0.6}
           azimuth={0.25}
-          turbidity={10}
-          rayleigh={2}
+          turbidity={15}
+          rayleigh={1.5}
+          mieCoefficient={0.005}
+          mieDirectionalG={0.8}
         />
 
         {/* Physics World */}
