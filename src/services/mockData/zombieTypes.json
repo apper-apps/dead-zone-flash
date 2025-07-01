@@ -1,0 +1,67 @@
+[
+  {
+    "Id": 1,
+    "type": "normal",
+    "name": "Walker",
+    "baseHealth": 100,
+    "baseSpeed": 2.5,
+    "baseDamage": 20,
+    "color": "#2F4F4F",
+    "size": [0.8, 1.8, 0.8],
+    "spawnWeight": 0.6,
+    "scoreValue": 100,
+    "description": "Standard zombie with moderate health and speed"
+  },
+  {
+    "Id": 2,
+    "type": "fast",
+    "name": "Runner",
+    "baseHealth": 75,
+    "baseSpeed": 4.0,
+    "baseDamage": 15,
+    "color": "#FF6B35",
+    "size": [0.6, 1.6, 0.6],
+    "spawnWeight": 0.3,
+    "scoreValue": 150,
+    "description": "Fast-moving zombie with lower health but higher speed"
+  },
+  {
+    "Id": 3,
+    "type": "tank",
+    "name": "Brute",
+    "baseHealth": 200,
+    "baseSpeed": 1.5,
+    "baseDamage": 35,
+    "color": "#8B0000",
+    "size": [1.2, 2.2, 1.2],
+    "spawnWeight": 0.1,
+    "scoreValue": 250,
+    "description": "Heavy zombie with high health and damage but slow movement"
+  },
+  {
+    "Id": 4,
+    "type": "spitter",
+    "name": "Acid Spitter",
+    "baseHealth": 80,
+    "baseSpeed": 2.0,
+    "baseDamage": 25,
+    "color": "#32CD32",
+    "size": [0.7, 1.7, 0.7],
+    "spawnWeight": 0.15,
+    "scoreValue": 175,
+    "description": "Ranged zombie that can spit acid from a distance"
+  },
+  {
+    "Id": 5,
+    "type": "explosive",
+    "name": "Boomer",
+    "baseHealth": 60,
+    "baseSpeed": 1.8,
+    "baseDamage": 50,
+    "color": "#FFD700",
+    "size": [1.0, 1.9, 1.0],
+    "spawnWeight": 0.08,
+    "scoreValue": 200,
+    "description": "Explodes on death, dealing area damage"
+  }
+]

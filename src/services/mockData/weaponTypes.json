@@ -1,0 +1,67 @@
+[
+  {
+    "Id": 1,
+    "type": "rifle",
+    "name": "M4A1 Assault Rifle",
+    "damage": 25,
+    "fireRate": 600,
+    "clipSize": 30,
+    "reloadTime": 2000,
+    "accuracy": 0.85,
+    "range": 50,
+    "ammoType": "rifle",
+    "description": "Standard military assault rifle with balanced stats"
+  },
+  {
+    "Id": 2,
+    "type": "shotgun",
+    "name": "Remington 870",
+    "damage": 80,
+    "fireRate": 120,
+    "clipSize": 8,
+    "reloadTime": 3000,
+    "accuracy": 0.6,
+    "range": 15,
+    "ammoType": "shotgun",
+    "description": "High-damage close-range weapon with wide spread"
+  },
+  {
+    "Id": 3,
+    "type": "pistol",
+    "name": "Glock 17",
+    "damage": 15,
+    "fireRate": 300,
+    "clipSize": 17,
+    "reloadTime": 1500,
+    "accuracy": 0.9,
+    "range": 30,
+    "ammoType": "pistol",
+    "description": "Reliable sidearm with good accuracy and fast reload"
+  },
+  {
+    "Id": 4,
+    "type": "sniper",
+    "name": "Barrett M82",
+    "damage": 150,
+    "fireRate": 60,
+    "clipSize": 5,
+    "reloadTime": 4000,
+    "accuracy": 0.95,
+    "range": 100,
+    "ammoType": "sniper",
+    "description": "High-powered long-range rifle with devastating damage"
+  },
+  {
+    "Id": 5,
+    "type": "smg",
+    "name": "MP5",
+    "damage": 18,
+    "fireRate": 800,
+    "clipSize": 25,
+    "reloadTime": 1800,
+    "accuracy": 0.75,
+    "range": 25,
+    "ammoType": "smg",
+    "description": "Fast-firing submachine gun for close-quarters combat"
+  }
+]
