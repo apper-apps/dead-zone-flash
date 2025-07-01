@@ -322,10 +322,12 @@ const Player = ({ gameState, onUpdatePlayer, onGameOver, zombies }) => {
     );
   };
 
-  return (
+return (
     <>
       <mesh ref={ref} visible={false} />
       <GunModel />
     </>
   );
 };
+
+export default Player;
